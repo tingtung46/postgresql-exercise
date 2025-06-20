@@ -15,3 +15,10 @@ exports.usersCreatePost = async (req, res) => {
   await db.insertUsername(username);
   res.redirect("/");
 };
+
+exports.searchUserGet = async (req, res) => {
+  const keyword = req.query.keyword;
+  const searchResult = await db.searchUsername(keyword);
+  console.log(searchResult);
+  res.render("search", { title: "Search Result", usernames: searchResult });
+};

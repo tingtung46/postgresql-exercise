@@ -5,14 +5,11 @@
 
   <body>
     <h1><%= title %></h1>
-    <%- include('searchBar.ejs') %>
 
     <ul>
       <% if (locals.usernames) { %> <% usernames.forEach((username) => { %>
       <li><%= username.username %></li>
       <% }) %> <% } %>
     </ul>
-
-    <a href="/new">Create a user</a>
   </body>
 </html>
