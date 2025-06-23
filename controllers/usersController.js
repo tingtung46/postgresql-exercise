@@ -22,3 +22,9 @@ exports.searchUserGet = async (req, res) => {
   console.log(searchResult);
   res.render("search", { title: "Search Result", usernames: searchResult });
 };
+
+exports.deleteUserPost = async (req, res) => {
+  const id = req.params.id;
+  await db.deleteUsername(id);
+  res.redirect("/");
+};

@@ -9,7 +9,22 @@
 
     <ul>
       <% if (locals.usernames) { %> <% usernames.forEach((username) => { %>
-      <li><%= username.username %></li>
+      <li>
+        <%= username.username %>
+
+        <form
+          action="/<%= username.id %>/delete"
+          method="post"
+          style="display: inline"
+        >
+          <button
+            type="submit"
+            onclick="confirm('Are you sure to delete this user?')"
+          >
+            Delete
+          </button>
+        </form>
+      </li>
       <% }) %> <% } %>
     </ul>
 
